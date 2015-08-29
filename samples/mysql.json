@@ -1,0 +1,20 @@
+{
+    "id": "mysql",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "mysql:5.5",
+            "network": "BRIDGE"
+        }
+    },
+    "env": {
+        "SERVICE_NAME": "mysql",
+        "MYSQL_DATABASE": "dbname",
+        "MYSQL_USER": "username",
+        "MYSQL_PASSWORD": "password",
+        "MYSQL_ROOT_PASSWORD": "root_password"
+    },
+    "cpus": 1,
+    "mem": 512,
+    "instances": 1
+}

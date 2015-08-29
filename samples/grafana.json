@@ -1,0 +1,24 @@
+{
+    "id": "grafana",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "grafana/grafana:latest",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 3000,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ]
+        }
+    },
+    "env": {
+        "GF_SERVER_ROOT_URL": "http://grafana.app.rhommell.com",
+        "GF_SECURITY_ADMIN_PASSWORD": "secret"
+    },
+    "cpus": 0.5,
+    "mem": 512,
+    "instances": 1
+}

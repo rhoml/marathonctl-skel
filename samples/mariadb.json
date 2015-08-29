@@ -1,0 +1,26 @@
+{
+    "id": "mariadb",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "mariadb:latest",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 3306,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ]
+        }
+    },
+    "env": {
+        "MYSQL_ROOT_PASSWORD": "debolas",
+        "MYSQL_USER": "portus",
+        "MYSQL_PASSWORD": "portus",
+        "MYSQL_DATABASE": "portus"
+    },
+    "cpus": 1,
+    "mem": 512,
+    "instances": 1
+}

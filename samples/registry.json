@@ -1,0 +1,47 @@
+{
+    "id": "registry",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "registry:2",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ]
+        },
+        "volumes": [
+            {
+                "containerPath": "/var/lib/registry",
+                "hostPath": "/var/data/storage",
+                "mode": "RW"
+            },
+            {
+                "containerPath": "/certs",
+                "hostPath": "/var/data/certs",
+                "mode": "RW"
+            },
+            {
+                "containerPath": "/auth",
+                "hostPath": "/var/data/auth",
+                "mode": "RW"
+            }
+        ]
+    },
+    "env": {
+        "REGISTRY_HTTP_SECRET": "tutankamon",
+        "REGISTRY_HTTP_TLS_CERTIFICATE": "/certs/domain.crt",
+        "REGISTRY_HTTP_TLS_KEY": "/certs/domain.key",
+        "REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY": "/var/lib/registry",
+        "REGISTRY_AUTH_HTPASSWD_PATH": "/auth/htpasswd",
+        "REGISTRY_AUTH_HTPASSWD_REALM": "Registry Realm",
+        "REGISTRY_REDIS_ADDR": "balder.rhommell.com:32323",
+        "REGISTRY_STORAGE_CACHE_BLOBDESCRIPTOR": "redis"
+    },
+    "cpus": 1,
+    "mem": 1024,
+    "instances": 1
+}
