@@ -1,0 +1,23 @@
+{
+    "id": "redis",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "redis:latest",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 6379,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ]
+        }
+    },
+    "env": {
+        "SERVICE_NAME": "sensu-server"
+    },
+    "cpus": 0.3,
+    "mem": 128,
+    "instances": 1
+}

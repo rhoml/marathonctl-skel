@@ -1,0 +1,29 @@
+{
+    "id": "rabbitmq",
+    "container": {
+        "type": "DOCKER",
+        "docker": {
+            "image": "rabbitmq:3-management",
+            "network": "BRIDGE",
+            "portMappings": [
+                {
+                    "containerPort": 5672,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                },
+                {
+                    "containerPort": 15672,
+                    "hostPort": 0,
+                    "protocol": "tcp"
+                }
+            ]
+        }
+    },
+    "env": {
+        "SERVICE_NAME": "sensu-server",
+        "RABBITMQ_ERLANG_COOKIE": "sdfdfgklj434lk"
+    },
+    "cpus": 0.5,
+    "mem": 512,
+    "instances": 1
+}
